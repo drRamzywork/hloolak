@@ -1,0 +1,114 @@
+section.goals {
+  background-color: #fafaff;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  .text_container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    // justify-content: center;
+    .title {
+      width: 744px;
+      h3 {
+        margin: 0;
+        font-size: 48px;
+        font-weight: 700;
+        color: var(--main-blue);
+      }
+    }
+
+    .desc {
+      p {
+        margin: 0;
+        margin-bottom: 8px;
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--sec-blue);
+      }
+    }
+  }
+
+  .sec_title {
+    margin-top: 150px;
+    text-align: center;
+    width: 100%;
+
+    h2 {
+      margin: 0;
+      color: var(--main-blue);
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    p {
+      margin: 0;
+      color: var(--sec-blue);
+      font-family: 18px;
+      font-weight: 400;
+    }
+  }
+  .boxes_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 48px;
+
+    .box {
+      box-shadow: 0px 2px 9px 0px #222a3508;
+      box-shadow: 0px 24px 48px 0px #2f303705;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      text-align: center;
+      gap: 24px;
+      border-radius: 24px;
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        h3 {
+          font-weight: 600;
+          font-size: 36px;
+          color: var(--main-blue);
+          margin: 0;
+        }
+
+        .icon_container {
+          display: flex;
+          border-radius: 18px;
+          width: 64px;
+          height: 64px;
+          img {
+            margin: auto;
+          }
+        }
+      }
+
+      .desc {
+        p {
+        }
+      }
+
+      &:first-child {
+        .title {
+          .icon_container {
+            background: #1b14641a;
+          }
+        }
+      }
+      &:last-child {
+        .title {
+          .icon_container {
+            background: #f6e2ec;
+          }
+        }
+      }
+    }
+  }
+}
