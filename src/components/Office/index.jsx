@@ -12,10 +12,10 @@ import Image from 'next/image';
 
 const breakpoints = {
   320: {
-    slidesPerView: 1.8,
+    slidesPerView: 3,
   },
   380: {
-    slidesPerView: 1.8,
+    slidesPerView: 3,
   },
   640: {
     slidesPerView: 3,

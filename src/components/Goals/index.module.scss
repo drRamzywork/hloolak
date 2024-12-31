@@ -112,3 +112,53 @@ section.goals {
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  section.goals {
+    .text_container {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      .title {
+        width: 100%;
+        h3 {
+          text-align: center;
+        }
+
+        .desc {
+          p {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .boxes_container {
+      flex-wrap: wrap;
+      .box {
+        .title {
+          h3 {
+          }
+
+          .icon_container {
+            img {
+            }
+          }
+        }
+
+        .desc {
+          p {
+          }
+        }
+      }
+    }
+
+    .sec_title {
+      margin-top: 75px;
+      h2 {
+      }
+      p {
+      }
+    }
+  }
+}

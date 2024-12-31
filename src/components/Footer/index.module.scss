@@ -92,3 +92,65 @@ footer.footer {
     text-align: center;
   }
 }
+
+@media screen and (max-width: 992px) {
+  footer.footer {
+    .layer2,
+    .layer3,
+    .layer {
+    }
+
+    .layer2 {
+    }
+    .layer3 {
+    }
+
+    .sec_container {
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      .text_container {
+        // width: 488px;
+        .logo {
+          img {
+            width: 140px;
+          }
+        }
+        .desc {
+          p {
+          }
+        }
+      }
+      .links_container {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        .link {
+          width: 100%;
+          text-align: center;
+          .title {
+            h5 {
+            }
+          }
+
+          ul {
+            li {
+            }
+          }
+
+          .icons {
+            justify-content: center;
+            .icon {
+              img {
+              }
+            }
+          }
+        }
+      }
+    }
+
+    p {
+    }
+  }
+}

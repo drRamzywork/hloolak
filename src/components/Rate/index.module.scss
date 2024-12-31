@@ -60,3 +60,39 @@ section.rate {
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  section.rate {
+    .sec_container {
+      .sec_title {
+        h3 {
+        }
+      }
+
+      .desc {
+        p {
+        }
+      }
+
+      .boxes_container {
+        flex-wrap: wrap;
+        // flex-direction: column;
+        gap: 16px;
+        .box {
+          .icon_container {
+            img {
+              width: 34px;
+              height: 34px;
+            }
+          }
+
+          .title {
+            h5 {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

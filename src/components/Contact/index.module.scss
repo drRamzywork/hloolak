@@ -128,3 +128,70 @@ section.contact {
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  section.contact {
+    .sec_container {
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+      .text_container {
+        align-items: center;
+        .sec_title {
+          h3 {
+          }
+        }
+        .desc {
+          p {
+          }
+        }
+        .contact_info {
+          .title {
+            h5 {
+              text-align: center;
+            }
+          }
+          .box_container {
+            .icon_container {
+              img {
+              }
+            }
+
+            .text {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              p {
+              }
+
+              strong {
+              }
+            }
+          }
+        }
+      }
+      .form_container {
+        width: 100%;
+        form {
+          .box {
+            .label {
+            }
+            input {
+            }
+            input,
+            textarea {
+            }
+
+            textarea {
+            }
+          }
+
+          .btn_container {
+            button {
+            }
+          }
+        }
+      }
+    }
+  }
+}

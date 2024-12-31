@@ -76,3 +76,44 @@ section.services {
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  section.services {
+    margin-top: 75px;
+    .sec_container {
+      padding: 28px 34px;
+      .sec_title {
+        h3 {
+        }
+      }
+
+      .desc {
+        p {
+        }
+      }
+
+      .boxes_container {
+        flex-wrap: wrap;
+        flex-direction: column;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        .box {
+          .icon_container {
+            img {
+            }
+          }
+
+          .title {
+            h5 {
+            }
+          }
+
+          .desc {
+            p {
+            }
+          }
+        }
+      }
+    }
+  }
+}
