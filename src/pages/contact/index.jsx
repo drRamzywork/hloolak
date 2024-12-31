@@ -1,27 +1,17 @@
-import Head from "next/head";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Home/Hero";
-import Goals from "@/components/Home/Goals";
-import Rate from "@/components/Home/Rate";
-import Services from "@/components/Home/Services";
-import Products from "@/components/Home/Products";
-import Partners from "@/components/Home/Partners";
-import Office from "@/components/Home/Office";
-import Contact from "@/components/Home/Contact";
-import Footer from "@/components/Footer";
+import ContactUs from '@/components/Contact'
+import Head from 'next/head';
+import React from 'react'
 
-export default function Home({ dataPartners }) {
-  const siteName = 'حلولك التقنية';
+const Contact = () => {
+
+  const siteName = ' حلولك التقنية |  تواصل معنا';
   const imagePath = '/logo.png';
-  const siteDescrription = 'ندمج بين التحليل الإبداعي والتخطيط الاستراتيجي لتقديم حلول تقنية متكاملة';
+  const siteDescrription = 'نحن هنا لخدمتك! اترك استفسارك أو ملاحظاتك، وسنتواصل معك بأسرع وقت';
 
   const siteURL = process.env.NEXT_PUBLIC_APP_DOMAIN;
 
-
-
   return (
     <>
-
       <Head>
         <title>{siteName}</title>
         <meta charSet="UTF-8" />
@@ -95,37 +85,10 @@ export default function Home({ dataPartners }) {
         />
         <meta name="twitter:description" content={siteDescrription} />
       </Head>
+      <ContactUs />
 
-
-      <>
-        <Navbar dark={false} />
-        <Hero />
-        <Goals />
-        <Rate />
-        <Services />
-        <Products />
-        <Partners dataPartners={dataPartners} />
-        <Office />
-        <Contact />
-        <Footer />
-      </>
     </>
-  );
+  )
 }
 
-
-
-export async function getStaticProps() {
-  const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
-
-  const resPartners = await fetch(`${apiDomain}/partners`)
-  const dataPartners = await resPartners.json();
-
-
-  return {
-    props: {
-      dataPartners: dataPartners?.data
-    },
-    revalidate: 10
-  };
-}
+export default Contact

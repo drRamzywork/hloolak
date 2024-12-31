@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import styles from '../Order/index.module.scss';
+import styles from './index.module.scss';
 import Navbar from '../Navbar';
 import toast, { Toaster } from 'react-hot-toast';
 import Footer from '../Footer';
 
-const ContactUs = () => {
+export const OrderComponent = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -36,12 +36,13 @@ const ContactUs = () => {
       setLoading(true);
       toast.loading('جاري إرسال البيانات...');
 
-      const response = await fetch('https://digital-solutions.rmz.one/api/contact', {
+      const response = await fetch('https://digital-solutions.rmz.one/api/order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
+      console.log(formData, "response")
 
       if (response.ok) {
         toast.dismiss();
@@ -59,7 +60,6 @@ const ContactUs = () => {
   };
   return (
     <>
-
       <Toaster position="bottom-center" reverseOrder={false} />
 
       <Navbar dark={true} />
@@ -69,11 +69,11 @@ const ContactUs = () => {
 
           <div className={styles.sec_container}>
             <div className={styles.sec_title}>
-              <h3>  تواصل معنا</h3>
+              <h3>اطلب منتجك الآن</h3>
             </div>
 
             <div className={styles.desc}>
-              <p>  نحن هنا لخدمتك! اترك استفسارك أو ملاحظاتك، وسنتواصل معك بأسرع وقت  </p>
+              <p> قم بملئ النموذج أدناه لطلب منتجك. فقط قم بملء التفاصيل المطلوبة وسنبدأ في معالجة طلبك على الفور.</p>
             </div>
 
             <div className={styles.form_container}>
@@ -147,7 +147,6 @@ const ContactUs = () => {
 
       <Footer />
     </>
+
   )
 }
-
-export default ContactUs

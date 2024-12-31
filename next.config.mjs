@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    turbo: false, // Disable Turbopack
+
+  images: {
+    domains: ["digital-solutions.rmz.one"],
   },
 };
 

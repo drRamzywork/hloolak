@@ -77,6 +77,50 @@ nav.navbar {
   }
 }
 
+nav.dark {
+  background: transparent;
+  .sec_container {
+    .logo {
+      cursor: pointer;
+      img {
+      }
+    }
+    ul {
+      li {
+        a {
+          color: #000000;
+          padding-bottom: 7px;
+
+          &:hover {
+            color: var(--primary-blue2);
+            border-bottom-color: var(--primary-blue2);
+          }
+
+          &.active {
+            color: var(--primary-blue2);
+            border-bottom-color: var(--primary-blue2);
+          }
+        }
+      }
+    }
+
+    .btn_container {
+      button {
+        background-color: var(--primary-blue2);
+        color: white;
+        box-shadow: 0px 1px 2px 0px #c6e4f60d;
+        border: 1px solid #1b1464;
+      }
+    }
+
+    .burger_menu {
+      svg {
+        color: var(--main-blue);
+      }
+    }
+  }
+}
+
 @media screen and (min-width: 992px) {
   .burger_menu {
     display: none;

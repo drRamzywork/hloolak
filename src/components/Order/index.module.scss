@@ -1,0 +1,107 @@
+section.order {
+  padding-top: 120px;
+  padding-bottom: 60px;
+  .sec_title {
+    margin-bottom: 16px;
+    @media screen and (max-width: 992px) {
+      margin-bottom: 8px;
+    }
+    h3 {
+      text-align: center;
+      margin: 0;
+      color: var(--main-blue);
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 8px;
+
+      @media screen and (max-width: 992px) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .desc {
+    margin-bottom: 64px;
+    @media screen and (max-width: 992px) {
+      margin-bottom: 34px;
+    }
+    p {
+      text-align: center;
+      margin: 0;
+      color: var(--sec-blue);
+      font-size: 24px;
+      font-weight: 400;
+
+      @media screen and (max-width: 992px) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .form_container {
+    width: 100%;
+    display: flex;
+    form {
+      margin: auto;
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0px 14px 64px 0px #0000000f;
+      width: 100%;
+      max-width: 990px;
+
+      .boxes_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); // Two equal-width columns
+        grid-template-rows: repeat(2, auto); // Two rows with automatic height
+        gap: 16px; // Optional: Adds space between grid items
+      }
+
+      .box {
+        width: 100%;
+        margin-bottom: 16px;
+
+        .label {
+          color: var(--sec-blue);
+          font-weight: 500;
+          font-size: 14px;
+          margin-bottom: 12px;
+          width: 100%;
+        }
+        input {
+          height: 48px;
+        }
+        input,
+        textarea {
+          width: 100%;
+          border: 1px solid #c7c7c7;
+          border-radius: 10px;
+
+          box-shadow: 0px 0px 0px 1px #022c2221;
+          box-shadow: 0px 1px 2px 0px #022c2214;
+        }
+
+        textarea {
+          height: 120px;
+        }
+      }
+
+      .btn_container {
+        width: 100%;
+
+        button {
+          width: 100%;
+          background-color: var(--main-blue);
+          box-shadow: 0px 1px 2px 0px #c6e4f60d;
+          border-radius: 8px;
+          border: none;
+          color: #ffffff;
+          font-weight: 500;
+          font-size: 16px;
+
+          padding: 12px 0px;
+        }
+      }
+    }
+  }
+}

@@ -40,7 +40,7 @@ const breakpoints = {
   },
 };
 
-const Partners = () => {
+const Partners = ({ dataPartners }) => {
   return (
     <section id="partners" className={styles.partners}>
       <div className={styles.sec_title}>
@@ -50,6 +50,7 @@ const Partners = () => {
       <div className={styles.desc}>
         <p>نجاح عملائنا هو نجاحنا</p>
       </div>
+
       <div className="container">
         <div className={styles.swiper_container}>
           <Swiper
@@ -67,7 +68,10 @@ const Partners = () => {
             }}
             loop={true}
           >
-            {[...Array(10)].map((_, index) => (
+
+
+
+            {dataPartners.map((partner, index) =>
               <SwiperSlide key={index}>
                 <motion.div
                   initial={{ opacity: 0 }}
@@ -76,14 +80,16 @@ const Partners = () => {
                   className={styles.img_container}
                 >
                   <Image
-                    src="/assets/imgs/partners/logo.png"
-                    alt="Partner Logo"
+                    src={partner?.image}
+                    alt={partner?.name}
                     width={123.42}
                     height={123.42}
                   />
+
                 </motion.div>
               </SwiperSlide>
-            ))}
+
+            )}
           </Swiper>
         </div>
       </div>

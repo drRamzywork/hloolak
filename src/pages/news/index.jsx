@@ -1,27 +1,15 @@
-import Head from "next/head";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Home/Hero";
-import Goals from "@/components/Home/Goals";
-import Rate from "@/components/Home/Rate";
-import Services from "@/components/Home/Services";
-import Products from "@/components/Home/Products";
-import Partners from "@/components/Home/Partners";
-import Office from "@/components/Home/Office";
-import Contact from "@/components/Home/Contact";
-import Footer from "@/components/Footer";
+import NewsComponent from '@/components/News';
+import Head from 'next/head';
+import React from 'react'
 
-export default function Home({ dataPartners }) {
-  const siteName = 'حلولك التقنية';
+const News = ({ dataAllNews }) => {
+  const siteName = ' حلولك التقنية | الأخبار';
   const imagePath = '/logo.png';
-  const siteDescrription = 'ندمج بين التحليل الإبداعي والتخطيط الاستراتيجي لتقديم حلول تقنية متكاملة';
+  const siteDescrription = 'الأخبار: نشارككم الجديد والمهم         ';
 
   const siteURL = process.env.NEXT_PUBLIC_APP_DOMAIN;
-
-
-
   return (
     <>
-
       <Head>
         <title>{siteName}</title>
         <meta charSet="UTF-8" />
@@ -95,36 +83,25 @@ export default function Home({ dataPartners }) {
         />
         <meta name="twitter:description" content={siteDescrription} />
       </Head>
+      <NewsComponent />
 
-
-      <>
-        <Navbar dark={false} />
-        <Hero />
-        <Goals />
-        <Rate />
-        <Services />
-        <Products />
-        <Partners dataPartners={dataPartners} />
-        <Office />
-        <Contact />
-        <Footer />
-      </>
     </>
-  );
+  )
 }
 
+export default News
 
 
 export async function getStaticProps() {
   const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
-  const resPartners = await fetch(`${apiDomain}/partners`)
-  const dataPartners = await resPartners.json();
+  const resAllNews = await fetch(`${apiDomain}/content?category_slug=news`)
+  const dataAllNews = await resAllNews.json();
 
 
   return {
     props: {
-      dataPartners: dataPartners?.data
+      dataAllNews: dataAllNews?.data
     },
     revalidate: 10
   };

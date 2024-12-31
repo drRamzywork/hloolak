@@ -5,17 +5,17 @@ import Link from 'next/link';
 import { RxHamburgerMenu } from "react-icons/rx";
 import { motion } from 'framer-motion';
 
-const Navbar = () => {
+const Navbar = ({ dark }) => {
   const [menu, setMenu] = useState(false)
   return (
     <>
-      <nav className={styles.navbar}>
+      <nav className={` ${styles.navbar} ${dark && styles.dark}`} >
         <div className="container">
           <div className={styles.sec_container}>
 
             <Link href={'#'} className={styles.logo}>
               <Image
-                src="/assets/svgs/logo.svg"
+                src={dark ? "/assets/svgs/logo-dark.svg" : "/assets/svgs/logo.svg"}
                 alt="Vercel logomark"
                 width={203}
                 height={60}
@@ -31,7 +31,7 @@ const Navbar = () => {
               <li><Link href='/'>منتجاتنا</Link></li>
               <li><Link href='/'>شركاؤنا</Link></li>
               <li><Link href='/'>المدونة</Link></li>
-              <li><Link href='/'>الآخبار</Link></li>
+              <li><Link href='/news'>الآخبار</Link></li>
             </ul>
 
             <div className={styles.btn_container}>
@@ -70,7 +70,7 @@ const Navbar = () => {
                 <li><Link href='/'>منتجاتنا</Link></li>
                 <li><Link href='/'>شركاؤنا</Link></li>
                 <li><Link href='/'>المدونة</Link></li>
-                <li><Link href='/'>الآخبار</Link></li>
+                <li><Link href='/news'>الآخبار</Link></li>
               </ul>
 
               <div className={styles.btn_container}>
