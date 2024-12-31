@@ -24,7 +24,7 @@
 // }
 
 import "@/styles/globals.scss";
-import { IBM_Plex_Sans_Arabic, Noto_Sans_Arabic } from "next/font/google";
+import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Configure IBM Plex Sans Arabic
@@ -35,17 +35,15 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 });
 
 // Configure Noto Sans Arabic
-const notoSansArabic = Noto_Sans_Arabic({
-  subsets: ["arabic"],
-  weight: ["100", "400", "700"],
-  display: "swap",
-});
+// const notoSansArabic = Noto_Sans_Arabic({
+//   subsets: ["arabic"],
+//   weight: ["100", "400", "700"],
+//   display: "swap",
+// });
 
 export default function App({ Component, pageProps }) {
   return (
-    <main
-      className={`${ibmPlexSansArabic.className} ${notoSansArabic.className}`}
-    >
+    <main className={`${ibmPlexSansArabic.className}`}>
       <Component {...pageProps} />
     </main>
   );

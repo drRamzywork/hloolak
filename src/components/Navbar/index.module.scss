@@ -8,6 +8,7 @@ nav.navbar {
   z-index: 9999;
 
   background: linear-gradient(#120d43, hsla(0, 0%, 100%, 0));
+  backdrop-filter: blur(8px);
   .sec_container {
     width: 100%;
     display: flex;

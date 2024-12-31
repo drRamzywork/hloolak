@@ -1,12 +1,14 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Goals from "@/components/Goals";
 import Rate from "@/components/Rate";
 import Services from "@/components/Services";
 import Products from "@/components/Products";
+import Partners from "@/components/Partners";
+import Office from "@/components/Office";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -25,6 +27,10 @@ export default function Home() {
         <Rate />
         <Services />
         <Products />
+        <Partners />
+        <Office />
+        <Contact />
+        <Footer />
       </>
     </>
   );

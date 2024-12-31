@@ -1,0 +1,130 @@
+section.contact {
+  margin-top: 150px;
+  background: rgba(229, 228, 244, 0.5);
+  padding-top: 60px;
+
+  padding-bottom: 120px;
+
+  .sec_container {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    .text_container {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      .sec_title {
+        h3 {
+          margin: 0;
+          color: var(--main-blue);
+          font-size: 40px;
+          font-weight: 700;
+          margin-bottom: 8px;
+        }
+      }
+      .desc {
+        margin-bottom: 32px;
+        margin-top: 8px;
+        p {
+          margin: 0;
+          color: var(--sec-blue);
+          font-family: 20px;
+          font-weight: 400;
+        }
+      }
+      .contact_info {
+        .title {
+          h5 {
+            margin: 0;
+            color: var(--main-blue);
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 8px;
+          }
+        }
+        .box_container {
+          display: flex;
+          align-items: flex-start;
+          // gap: 9.25px;
+          margin-top: 16px;
+          .icon_container {
+            img {
+            }
+          }
+
+          .text {
+            p {
+              margin: 0;
+              color: var(--sec-blue);
+              font-family: 20px;
+              font-weight: 400;
+              margin-right: 9.25px;
+            }
+            strong {
+              display: block;
+              margin-top: 8px;
+              color: #120d43;
+            }
+          }
+        }
+      }
+    }
+    .form_container {
+      width: 500px;
+      form {
+        background: #ffffff;
+        padding: 32px;
+        border-radius: 18px;
+        box-shadow: 0px 14px 64px 0px #0000000f;
+        width: 100%;
+
+        .box {
+          width: 100%;
+          margin-bottom: 16px;
+
+          .label {
+            color: var(--sec-blue);
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 12px;
+            width: 100%;
+          }
+          input {
+            height: 48px;
+          }
+          input,
+          textarea {
+            width: 100%;
+            border: 1px solid #c7c7c7;
+            border-radius: 10px;
+
+            box-shadow: 0px 0px 0px 1px #022c2221;
+            box-shadow: 0px 1px 2px 0px #022c2214;
+          }
+
+          textarea {
+            height: 120px;
+          }
+        }
+
+        .btn_container {
+          width: 100%;
+
+          button {
+            width: 100%;
+            background-color: var(--main-blue);
+            box-shadow: 0px 1px 2px 0px #c6e4f60d;
+            border-radius: 8px;
+            border: none;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 16px;
+
+            padding: 12px 0px;
+          }
+        }
+      }
+    }
+  }
+}
