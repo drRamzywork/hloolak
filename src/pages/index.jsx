@@ -96,7 +96,6 @@ export default function Home({ dataPartners }) {
         <meta name="twitter:description" content={siteDescrription} />
       </Head>
 
-
       <>
         <Navbar dark={false} />
         <Hero />

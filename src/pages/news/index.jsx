@@ -5,7 +5,7 @@ import React from 'react'
 const News = ({ dataAllNews }) => {
   const siteName = ' حلولك التقنية | الأخبار';
   const imagePath = '/logo.png';
-  const siteDescrription = 'الأخبار: نشارككم الجديد والمهم         ';
+  const siteDescrription = 'الأخبار: نشارككم الجديد والمهم';
 
   const siteURL = process.env.NEXT_PUBLIC_APP_DOMAIN;
   return (
@@ -83,13 +83,14 @@ const News = ({ dataAllNews }) => {
         />
         <meta name="twitter:description" content={siteDescrription} />
       </Head>
+
       <NewsComponent />
 
     </>
   )
 }
 
-export default News
+export default News;
 
 
 export async function getStaticProps() {

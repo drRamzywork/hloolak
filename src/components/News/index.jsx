@@ -9,7 +9,6 @@ const NewsComponent = () => {
   return (
     <>
       <Navbar dark={true} />
-
       <section id='news' className={styles.news}>
         <div className="container">
           <div className={styles.sec_container}>
@@ -163,8 +162,6 @@ const NewsComponent = () => {
           </div>
         </div>
       </section>
-
-
       <Footer />
     </>
   )

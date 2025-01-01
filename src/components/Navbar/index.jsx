@@ -26,17 +26,17 @@ const Navbar = ({ dark }) => {
 
             <ul>
               <li><Link href='/' className={styles.active}>الرئيسية</Link></li>
-              <li><Link href='/'>عن الشركة</Link></li>
-              <li><Link href='/'>خدماتنا</Link></li>
-              <li><Link href='/'>منتجاتنا</Link></li>
-              <li><Link href='/'>شركاؤنا</Link></li>
+              <li><Link href='/#goals'>عن الشركة</Link></li>
+              <li><Link href='/#services'>خدماتنا</Link></li>
+              <li><Link href='/#products'>منتجاتنا</Link></li>
+              <li><Link href='/#partners'>شركاؤنا</Link></li>
               <li><Link href='/'>المدونة</Link></li>
               <li><Link href='/news'>الآخبار</Link></li>
             </ul>
 
-            <div className={styles.btn_container}>
+            <Link href='/contact' className={styles.btn_container}>
               <button>تواصل معنا</button>
-            </div>
+            </Link>
 
             <div className={styles.burger_menu} onClick={() => setMenu(true)}>
               <RxHamburgerMenu />
@@ -65,10 +65,10 @@ const Navbar = ({ dark }) => {
 
               <ul>
                 <li><Link href='/' className={styles.active}>الرئيسية</Link></li>
-                <li><Link href='/'>عن الشركة</Link></li>
-                <li><Link href='/'>خدماتنا</Link></li>
-                <li><Link href='/'>منتجاتنا</Link></li>
-                <li><Link href='/'>شركاؤنا</Link></li>
+                <li><Link href='/#goals'>عن الشركة</Link></li>
+                <li><Link href='/#services'>خدماتنا</Link></li>
+                <li><Link href='/#product'>منتجاتنا</Link></li>
+                <li><Link href='/#partners'>شركاؤنا</Link></li>
                 <li><Link href='/'>المدونة</Link></li>
                 <li><Link href='/news'>الآخبار</Link></li>
               </ul>
