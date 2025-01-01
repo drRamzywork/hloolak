@@ -48,9 +48,6 @@ const Navbar = ({ dark }) => {
         </div>
 
 
-
-
-
       </nav>
 
       {menu &&
