@@ -40,7 +40,7 @@ nav.navbar {
           border-bottom: 1px solid transparent;
           transition: color 0.3s ease-in-out,
             border-bottom-color 0.3s ease-in-out;
-
+          padding-bottom: 5px;
           &:hover {
             color: #f6e2ec;
             border-bottom-color: #f6e2ec;
@@ -162,7 +162,7 @@ nav.dark {
   backdrop-filter: blur(16px);
 
   .menu_container {
-    width: 60%;
+    width: 80%;
     background-color: #120d43d3;
     height: 100%;
     padding-top: 24px;

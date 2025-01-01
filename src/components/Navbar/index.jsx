@@ -12,8 +12,7 @@ const Navbar = ({ dark }) => {
       <nav className={` ${styles.navbar} ${dark && styles.dark}`} >
         <div className="container">
           <div className={styles.sec_container}>
-
-            <Link href={'#'} className={styles.logo}>
+            <Link href={'/'} className={styles.logo}>
               <Image
                 src={dark ? "/assets/svgs/logo-dark.svg" : "/assets/svgs/logo.svg"}
                 alt="Vercel logomark"
@@ -21,11 +20,8 @@ const Navbar = ({ dark }) => {
                 height={60}
               />
             </Link>
-
-
-
             <ul>
-              <li><Link href='/' className={styles.active}>الرئيسية</Link></li>
+              <li><Link href='/' >الرئيسية</Link></li>
               <li><Link href='/#goals'>عن الشركة</Link></li>
               <li><Link href='/#services'>خدماتنا</Link></li>
               <li><Link href='/#products'>منتجاتنا</Link></li>
@@ -33,17 +29,12 @@ const Navbar = ({ dark }) => {
               <li><Link href='/'>المدونة</Link></li>
               <li><Link href='/news'>الآخبار</Link></li>
             </ul>
-
             <Link href='/contact' className={styles.btn_container}>
               <button>تواصل معنا</button>
             </Link>
-
             <div className={styles.burger_menu} onClick={() => setMenu(true)}>
               <RxHamburgerMenu />
             </div>
-
-
-
           </div>
         </div>
 
@@ -60,7 +51,7 @@ const Navbar = ({ dark }) => {
             <div className="container">
 
               <ul>
-                <li><Link href='/' className={styles.active}>الرئيسية</Link></li>
+                <li><Link href='/' >الرئيسية</Link></li>
                 <li><Link href='/#goals'>عن الشركة</Link></li>
                 <li><Link href='/#services'>خدماتنا</Link></li>
                 <li><Link href='/#product'>منتجاتنا</Link></li>
