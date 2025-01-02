@@ -26,7 +26,7 @@ const Navbar = ({ dark }) => {
               <li><Link href='/#services'>خدماتنا</Link></li>
               <li><Link href='/#products'>منتجاتنا</Link></li>
               <li><Link href='/#partners'>شركاؤنا</Link></li>
-              <li><Link href='/'>المدونة</Link></li>
+              <li><Link href='/blogs'>المدونة</Link></li>
               <li><Link href='/news'>الآخبار</Link></li>
             </ul>
             <Link href='/contact' className={styles.btn_container}>
@@ -56,7 +56,7 @@ const Navbar = ({ dark }) => {
                 <li><Link href='/#services'>خدماتنا</Link></li>
                 <li><Link href='/#product'>منتجاتنا</Link></li>
                 <li><Link href='/#partners'>شركاؤنا</Link></li>
-                <li><Link href='/'>المدونة</Link></li>
+                <li><Link href='/blogs'>المدونة</Link></li>
                 <li><Link href='/news'>الآخبار</Link></li>
               </ul>
 

@@ -29,6 +29,8 @@ footer.footer {
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 56px;
+    z-index: 9999;
+    position: relative;
     .text_container {
       // width: 488px;
       .logo {
@@ -46,6 +48,12 @@ footer.footer {
       align-items: flex-start;
       justify-content: space-between;
       gap: 64px;
+
+      a {
+        text-decoration: none;
+        color: unset;
+      }
+
       .link {
         .title {
           margin-bottom: 16px;
@@ -129,6 +137,7 @@ footer.footer {
         .link {
           width: 100%;
           text-align: center;
+
           .title {
             h5 {
             }

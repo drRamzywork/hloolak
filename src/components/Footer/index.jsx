@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import styles from './index.module.scss';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -41,23 +42,58 @@ const Footer = () => {
               </div>
 
               <ul>
-                <li>من نحن</li>
-                <li>رؤية الشركة</li>
-                <li>خدماتنا</li>
-                <li>شركاؤنا</li>
+                <li>
+                  <Link href={'/#goals'}>
+                    من نحن
+                  </Link>
+
+                </li>
+                <li>
+                  <Link href={'/#goals'}>
+                    رؤية الشركة
+                  </Link>
+                </li>
+                <li>
+                  <Link href={'/#services'}>
+                    خدماتنا
+                  </Link>
+                </li>
+                <li>
+                  <Link href={'/#partners'}>
+                    شركاؤنا
+                  </Link>
+                </li>
               </ul>
             </div>
+
             <div className={styles.link}>
               <div className={styles.title}>
                 <h5>الموارد</h5>
               </div>
 
               <ul>
-                <li>الرئيسية</li>
-                <li>المدونة</li>
-                <li>الآخبار</li>
+                <li>
+                  <Link href={'/#'}>
+                    الرئيسية
+                  </Link>
+                </li>
+                <li>
+                  <Link href={'/blogs'}>
+                    المدونة
+                  </Link>
+
+
+
+                </li>
+                <li>
+                  <Link href={'/news'}>
+                    الآخبار
+                  </Link>
+
+                </li>
               </ul>
             </div>
+
             <div className={styles.link}>
               <div className={styles.title}>
                 <h5>للتواصل</h5>
@@ -90,6 +126,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 

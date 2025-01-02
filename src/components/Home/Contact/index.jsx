@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import styles from './index.module.scss';
 import Image from 'next/image';
 import toast, { Toaster } from 'react-hot-toast';
+import Link from 'next/link';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
-    description: '',
+    phone: '', // Added to match API requirements
+    message: '', // Added to match API requirements
+    desc: '', // Added to match API requirements
   });
 
   const [loading, setLoading] = useState(false);
@@ -24,7 +26,7 @@ const Contact = () => {
     e.preventDefault();
 
     // Validate form data
-    if (!formData.name || !formData.email || !formData.subject || !formData.description) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message || !formData.desc) {
       toast.error('الرجاء ملء جميع الحقول.');
       return;
     }
@@ -36,15 +38,19 @@ const Contact = () => {
       const response = await fetch('https://digital-solutions.rmz.one/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          desc: formData.desc,
+        }),
       });
-
-      console.log(formData, "response")
 
       if (response.ok) {
         toast.dismiss();
         toast.success('تم إرسال البيانات بنجاح!');
-        setFormData({ name: '', email: '', subject: '', description: '' }); // Reset form
+        setFormData({ name: '', email: '', phone: '', message: '', desc: '' }); // Reset form
       } else {
         throw new Error('فشل إرسال البيانات. حاول مرة أخرى.');
       }
@@ -106,7 +112,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className={styles.box_container}>
+                <Link href={`https://maps.app.goo.gl/Meuv4h7s5E9sMs5e8`} target='_blank' className={styles.box_container}>
                   <div className={styles.icon_container}>
                     <Image
                       src="/assets/svgs/contact/location.svg"
@@ -119,7 +125,7 @@ const Contact = () => {
                     <p>الموقع</p>
                     <strong>المملكة العربية السعودية، مكة المكرمة، بطحاء قريش.</strong>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
 
@@ -146,11 +152,21 @@ const Contact = () => {
                   />
                 </div>
                 <div className={styles.box}>
+                  <div className={styles.label}>رقم الجوال</div>
+                  <input
+                    type="text"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    disabled={loading}
+                  />
+                </div>
+                <div className={styles.box}>
                   <div className={styles.label}>الموضوع</div>
                   <input
                     type="text"
-                    name="subject"
-                    value={formData.subject}
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
                     disabled={loading}
                   />
@@ -158,8 +174,8 @@ const Contact = () => {
                 <div className={styles.box}>
                   <div className={styles.label}>الوصف</div>
                   <textarea
-                    name="description"
-                    value={formData.description}
+                    name="desc"
+                    value={formData.desc}
                     onChange={handleChange}
                     disabled={loading}
                   ></textarea>

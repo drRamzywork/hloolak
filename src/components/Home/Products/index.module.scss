@@ -63,7 +63,9 @@ section.products {
         gap: 10px;
         margin-bottom: 32px;
 
-        button {
+        a {
+          text-decoration: none;
+          cursor: pointer;
           border: none;
           border-radius: 8px;
           box-shadow: 0px 1px 2px 0px #c6e4f60d;
@@ -107,6 +109,39 @@ section.products {
 
             font-weight: 500;
             font-size: 14px;
+          }
+        }
+        position: relative;
+        .layer {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.171);
+          z-index: 99999;
+          backdrop-filter: blur(16px);
+        }
+        .certificate_image {
+          margin-top: 40px;
+          margin-bottom: 40px;
+          img {
+            width: auto;
+            height: auto;
+            border-radius: 20px;
+          }
+
+          .icon_container {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            cursor: pointer;
+            svg {
+              color: var(--main-blue);
+              width: 50px;
+              height: 50px;
+            }
           }
         }
       }

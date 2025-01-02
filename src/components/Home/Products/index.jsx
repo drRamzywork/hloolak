@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './index.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { IoCloseCircle } from "react-icons/io5";
+
 
 const Products = () => {
+  const [showCertificate, setShowCertificate] = useState(false);
+
+  const handleToggleCertificate = () => {
+    setShowCertificate(!showCertificate);
+  };
+
   return (
     <>
       <section id='products' className={styles.products}>
@@ -38,8 +48,8 @@ const Products = () => {
               </div>
 
               <div className={styles.btns_container}>
-                <button className={styles.dark}>اطلب المنتج</button>
-                <button className={styles.light}>اعرف المزيد</button>
+                <Link href={'/order'} className={styles.dark}>اطلب المنتج</Link>
+                <Link href={'https://ershad.info/'} target='_blank' className={styles.light}>اعرف المزيد</Link>
               </div>
 
               <div className={styles.certficate}>
@@ -57,8 +67,34 @@ const Products = () => {
                 </div>
 
                 <div className={styles.load_more}>
-                  <button>عرض الشهادة</button>
+                  <button onClick={handleToggleCertificate}>عرض الشهادة</button>
                 </div>
+
+
+                {showCertificate && (
+
+                  <div className={styles.layer} onClick={() => setShowCertificate(false)}>
+                    <motion.div
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5 }}
+                      className={styles.certificate_image}
+                    >
+                      <Image
+                        src="/assets/imgs/products/certficate.png"
+                        alt="شهادة"
+                        width={500}
+                        height={500}
+                      />
+
+                      <div className={styles.icon_container}>
+                        <IoCloseCircle />
+                      </div>
+                    </motion.div>
+                  </div>
+                )}
+
 
               </div>
 
@@ -121,8 +157,8 @@ const Products = () => {
               </div>
 
               <div className={styles.btns_container}>
-                <button className={styles.dark}>اطلب المنتج</button>
-                <button className={styles.light}>اعرف المزيد</button>
+                <Link href={'/order'} className={styles.dark}>اطلب المنتج</Link>
+                {/* <button className={styles.light}>اعرف المزيد</button> */}
               </div>
 
 

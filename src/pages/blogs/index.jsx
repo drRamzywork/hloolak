@@ -1,27 +1,15 @@
-import Head from "next/head";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Home/Hero";
-import Goals from "@/components/Home/Goals";
-import Rate from "@/components/Home/Rate";
-import Services from "@/components/Home/Services";
-import Products from "@/components/Home/Products";
-import Partners from "@/components/Home/Partners";
-import Office from "@/components/Home/Office";
-import Contact from "@/components/Home/Contact";
-import Footer from "@/components/Footer";
+import BlogsComponent from '@/components/Blogs'
+import Head from 'next/head';
+import React from 'react'
 
-export default function Home({ dataPartners }) {
-  const siteName = 'حلولك التقنية';
+const Blogs = ({ dataBlogs, dataAllCategories }) => {
+  const siteName = ' حلولك التقنية | المدونات';
   const imagePath = '/logo.png';
-  const siteDescrription = 'ندمج بين التحليل الإبداعي والتخطيط الاستراتيجي لتقديم حلول تقنية متكاملة';
-
+  const siteDescrription = 'الأخبار: نشارككم الجديد والمهم';
   const siteURL = process.env.NEXT_PUBLIC_APP_DOMAIN;
-
-
 
   return (
     <>
-
       <Head>
         <title>{siteName}</title>
         <meta charSet="UTF-8" />
@@ -96,34 +84,31 @@ export default function Home({ dataPartners }) {
         <meta name="twitter:description" content={siteDescrription} />
       </Head>
 
-      <>
-        <Navbar dark={false} />
-        <Hero />
-        <Goals />
-        <Rate />
-        <Services />
-        <Products />
-        <Partners dataPartners={dataPartners} />
-        {/* <Office /> */}
-        <Contact />
-        <Footer />
-      </>
+      <BlogsComponent dataBlogs={dataBlogs} dataAllCategories={dataAllCategories} filter={true} />
+
     </>
-  );
+  )
 }
+
+export default Blogs;
+
 
 
 
 export async function getStaticProps() {
   const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
-  const resPartners = await fetch(`${apiDomain}/partners`)
-  const dataPartners = await resPartners.json();
+  const resBlogs = await fetch(`${apiDomain}/content`)
+  const dataBlogs = await resBlogs.json();
+
+  const resAllCategories = await fetch(`${apiDomain}/content`)
+  const dataAllCategories = await resAllCategories.json();
 
 
   return {
     props: {
-      dataPartners: dataPartners?.data
+      dataBlogs: dataBlogs?.data,
+      dataAllCategories: dataAllCategories?.data,
     },
     revalidate: 10
   };

@@ -78,7 +78,7 @@ nav.navbar {
 }
 
 nav.dark {
-  background: transparent;
+  background: linear-gradient(#ffffff, hsla(0, 0%, 100%, 0));
   .sec_container {
     .logo {
       cursor: pointer;

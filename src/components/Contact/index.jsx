@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import styles from '../Order/index.module.scss';
 import Navbar from '../Navbar';
 import toast, { Toaster } from 'react-hot-toast';
@@ -9,8 +9,8 @@ const ContactUs = () => {
     name: '',
     email: '',
     phone: '',
-    subject: '',
-    description: '',
+    message: '', // Updated field name
+    desc: '', // Updated field name
   });
 
   const [loading, setLoading] = useState(false);
@@ -21,13 +21,11 @@ const ContactUs = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate form data
-    if (!formData.name || !formData.email || !formData.phone || !formData.subject || !formData.description) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message || !formData.desc) {
       toast.error('الرجاء ملء جميع الحقول.');
       return;
     }
@@ -42,11 +40,10 @@ const ContactUs = () => {
         body: JSON.stringify(formData),
       });
 
-
       if (response.ok) {
         toast.dismiss();
         toast.success('تم إرسال البيانات بنجاح!');
-        setFormData({ name: '', email: '', subject: '', description: '', phone }); // Reset form
+        setFormData({ name: '', email: '', phone: '', message: '', desc: '' }); // Reset form
       } else {
         throw new Error('فشل إرسال البيانات. حاول مرة أخرى.');
       }
@@ -57,30 +54,27 @@ const ContactUs = () => {
       setLoading(false);
     }
   };
+
   return (
     <>
-
       <Toaster position="bottom-center" reverseOrder={false} />
 
       <Navbar dark={true} />
 
-      <section id='order' className={styles.order}>
+      <section id="order" className={styles.order}>
         <div className="container">
-
           <div className={styles.sec_container}>
             <div className={styles.sec_title}>
-              <h3>  تواصل معنا</h3>
+              <h3>تواصل معنا</h3>
             </div>
 
             <div className={styles.desc}>
-              <p>  نحن هنا لخدمتك! اترك استفسارك أو ملاحظاتك، وسنتواصل معك بأسرع وقت  </p>
+              <p>نحن هنا لخدمتك! اترك استفسارك أو ملاحظاتك، وسنتواصل معك بأسرع وقت</p>
             </div>
 
             <div className={styles.form_container}>
               <form onSubmit={handleSubmit}>
-
                 <div className={styles.boxes_container}>
-
                   <div className={styles.box}>
                     <div className={styles.label}>الأسم</div>
                     <input
@@ -92,7 +86,7 @@ const ContactUs = () => {
                     />
                   </div>
                   <div className={styles.box}>
-                    <div className={styles.label}>الأسم</div>
+                    <div className={styles.label}>رقم الجوال</div>
                     <input
                       type="phone"
                       name="phone"
@@ -115,19 +109,18 @@ const ContactUs = () => {
                     <div className={styles.label}>الموضوع</div>
                     <input
                       type="text"
-                      name="subject"
-                      value={formData.subject}
+                      name="message"
+                      value={formData.message}
                       onChange={handleChange}
                       disabled={loading}
                     />
                   </div>
-
                 </div>
                 <div className={styles.box}>
                   <div className={styles.label}>الوصف</div>
                   <textarea
-                    name="description"
-                    value={formData.description}
+                    name="desc"
+                    value={formData.desc}
                     onChange={handleChange}
                     disabled={loading}
                   ></textarea>
@@ -140,14 +133,12 @@ const ContactUs = () => {
               </form>
             </div>
           </div>
-
         </div>
-
       </section>
 
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default ContactUs
+export default ContactUs;

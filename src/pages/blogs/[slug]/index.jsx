@@ -1,26 +1,20 @@
-import Head from "next/head";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Home/Hero";
-import Goals from "@/components/Home/Goals";
-import Rate from "@/components/Home/Rate";
-import Services from "@/components/Home/Services";
-import Products from "@/components/Home/Products";
-import Partners from "@/components/Home/Partners";
-import Office from "@/components/Home/Office";
-import Contact from "@/components/Home/Contact";
-import Footer from "@/components/Footer";
+import BlogsComponent from '@/components/Blogs';
+import Head from 'next/head';
+import React from 'react'
 
-export default function Home({ dataPartners }) {
-  const siteName = 'حلولك التقنية';
+const BlogCategory = ({ dataBlogs
+  , dataAllCategories }) => {
+
+  const siteName = ` حلولك التقنية | المدونات | ${dataBlogs[0]?.category_name} `;
   const imagePath = '/logo.png';
-  const siteDescrription = 'ندمج بين التحليل الإبداعي والتخطيط الاستراتيجي لتقديم حلول تقنية متكاملة';
+  const siteDescrription = 'الأخبار: نشارككم الجديد والمهم';
 
   const siteURL = process.env.NEXT_PUBLIC_APP_DOMAIN;
 
 
-
   return (
     <>
+
 
       <Head>
         <title>{siteName}</title>
@@ -96,34 +90,51 @@ export default function Home({ dataPartners }) {
         <meta name="twitter:description" content={siteDescrription} />
       </Head>
 
-      <>
-        <Navbar dark={false} />
-        <Hero />
-        <Goals />
-        <Rate />
-        <Services />
-        <Products />
-        <Partners dataPartners={dataPartners} />
-        {/* <Office /> */}
-        <Contact />
-        <Footer />
-      </>
+      <BlogsComponent dataBlogs={dataBlogs} dataAllCategories={dataAllCategories} filter={false} />
+
     </>
-  );
+  )
 }
 
+export default BlogCategory;
 
 
-export async function getStaticProps() {
+
+
+export async function getStaticPaths() {
   const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
 
-  const resPartners = await fetch(`${apiDomain}/partners`)
-  const dataPartners = await resPartners.json();
+  // Fetch all sections from the API
+  const resAllSections = await fetch(`${apiDomain}/categories`)
+  const dataAllSections = await resAllSections.json();
 
+  // Map the slugs to paths
+  const paths = dataAllSections?.data.map((item) => ({
+    params: { slug: item.slug },
+  }));
+
+  // Return the paths
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+}
+
+export async function getStaticProps(query) {
+  const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN;
+  const slug = query.params.slug
+
+
+  const resBlogs = await fetch(`${apiDomain}/content?category_slug=${slug}`)
+  const dataBlogs = await resBlogs.json();
+
+  const resAllCategories = await fetch(`${apiDomain}/content`)
+  const dataAllCategories = await resAllCategories.json();
 
   return {
     props: {
-      dataPartners: dataPartners?.data
+      dataBlogs: dataBlogs.data,
+      dataAllCategories: dataAllCategories?.data,
     },
     revalidate: 10
   };

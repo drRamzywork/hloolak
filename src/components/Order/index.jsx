@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import styles from './index.module.scss';
 import Navbar from '../Navbar';
 import toast, { Toaster } from 'react-hot-toast';
@@ -9,8 +9,8 @@ export const OrderComponent = () => {
     name: '',
     email: '',
     phone: '',
-    subject: '',
-    description: '',
+    target: '', // Updated to match the API's "target" field
+    desc: '',   // Updated to match the API's "desc" field
   });
 
   const [loading, setLoading] = useState(false);
@@ -21,13 +21,11 @@ export const OrderComponent = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate form data
-    if (!formData.name || !formData.email || !formData.phone || !formData.subject || !formData.description) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.target || !formData.desc) {
       toast.error('الرجاء ملء جميع الحقول.');
       return;
     }
@@ -42,12 +40,10 @@ export const OrderComponent = () => {
         body: JSON.stringify(formData),
       });
 
-      console.log(formData, "response")
-
       if (response.ok) {
         toast.dismiss();
         toast.success('تم إرسال البيانات بنجاح!');
-        setFormData({ name: '', email: '', subject: '', description: '', phone }); // Reset form
+        setFormData({ name: '', email: '', phone: '', target: '', desc: '' }); // Reset form
       } else {
         throw new Error('فشل إرسال البيانات. حاول مرة أخرى.');
       }
@@ -58,29 +54,30 @@ export const OrderComponent = () => {
       setLoading(false);
     }
   };
+
   return (
     <>
       <Toaster position="bottom-center" reverseOrder={false} />
 
       <Navbar dark={true} />
 
-      <section id='order' className={styles.order}>
+      <section id="order" className={styles.order}>
         <div className="container">
-
           <div className={styles.sec_container}>
             <div className={styles.sec_title}>
               <h3>اطلب منتجك الآن</h3>
             </div>
 
             <div className={styles.desc}>
-              <p> قم بملئ النموذج أدناه لطلب منتجك. فقط قم بملء التفاصيل المطلوبة وسنبدأ في معالجة طلبك على الفور.</p>
+              <p>
+                قم بملئ النموذج أدناه لطلب منتجك. فقط قم بملء التفاصيل المطلوبة وسنبدأ في معالجة طلبك على
+                الفور.
+              </p>
             </div>
 
             <div className={styles.form_container}>
               <form onSubmit={handleSubmit}>
-
                 <div className={styles.boxes_container}>
-
                   <div className={styles.box}>
                     <div className={styles.label}>الأسم</div>
                     <input
@@ -92,7 +89,7 @@ export const OrderComponent = () => {
                     />
                   </div>
                   <div className={styles.box}>
-                    <div className={styles.label}>الأسم</div>
+                    <div className={styles.label}>رقم الجوال</div>
                     <input
                       type="phone"
                       name="phone"
@@ -115,19 +112,18 @@ export const OrderComponent = () => {
                     <div className={styles.label}>الموضوع</div>
                     <input
                       type="text"
-                      name="subject"
-                      value={formData.subject}
+                      name="target" // Updated to "target" as required by the API
+                      value={formData.target}
                       onChange={handleChange}
                       disabled={loading}
                     />
                   </div>
-
                 </div>
                 <div className={styles.box}>
                   <div className={styles.label}>الوصف</div>
                   <textarea
-                    name="description"
-                    value={formData.description}
+                    name="desc" // Updated to "desc" as required by the API
+                    value={formData.desc}
                     onChange={handleChange}
                     disabled={loading}
                   ></textarea>
@@ -140,13 +136,10 @@ export const OrderComponent = () => {
               </form>
             </div>
           </div>
-
         </div>
-
       </section>
 
       <Footer />
     </>
-
-  )
-}
+  );
+};
